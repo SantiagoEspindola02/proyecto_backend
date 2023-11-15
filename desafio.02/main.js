@@ -79,8 +79,8 @@ class Product {
     }
 }
 
-const product1 = new Product("moto zanella", "patagonia eagle 150", 1000000, "nico", "3", 1000)
-const product2 = new Product("moto mondial", "mondial 250", 2000000, "leo", "4", 500)
+const product1 = new Product("nike 1", "zapatillas para correr", 100, 10, "/zapatillas/nike1", "a200")
+const product2 = new Product("jordan retro", "zapatillas de coleccion", 250, 15, "/zapatillas/jordanretro", "a201")
 
 //console.log(product1)
 //console.log(product2)
@@ -90,4 +90,3 @@ const productManager = new ProductManager('/products.txt')
 productManager.addProduct(product1);
 productManager.addProduct(product2);
 
-    
