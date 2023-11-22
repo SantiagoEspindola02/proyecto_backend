@@ -85,8 +85,8 @@ const product2 = new Product("jordan retro", "zapatillas de coleccion", 250, 15,
 //console.log(product1)
 //console.log(product2)
 
-const productManager = new ProductManager('/products.txt')
+const productManager = new ProductManager('./products.txt')
 
-productManager.addProduct(product1);
+productManager.addProduct(product1)
 productManager.addProduct(product2);
-
+console.log(productManager.getProducts())

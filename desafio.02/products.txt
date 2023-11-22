@@ -1,0 +1,1 @@
+[{"title":"nike 1","descripcion":"zapatillas para correr","price":100,"stock":"a200","thumbnail":10,"code":"/zapatillas/nike1","id":1},{"title":"jordan retro","descripcion":"zapatillas de coleccion","price":250,"stock":"a201","thumbnail":15,"code":"/zapatillas/jordanretro","id":2}]
