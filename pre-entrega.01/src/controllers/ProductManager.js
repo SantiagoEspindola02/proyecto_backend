@@ -27,36 +27,36 @@ export default class ProductManager {
     }
 
     async addProduct(product) {
-        //Consulto el txt y lo parseo
+
         const products = JSON.parse(await fs.readFile(this.path, 'utf-8'))
 
         product.pid = this.generateId(products)
         product.status = true;
-        //Lo agrego al array al ya saber que no existe
+
         products.push(product)
-        //Parsearlo y guardar el array modificado
+
         await fs.writeFile(this.path, JSON.stringify(products))
         return true;
     }
     async updateProduct(pid, product) {
         const products = JSON.parse(await fs.readFile(this.path, 'utf-8'))
-        const indice = products.findIndex(prod => prod.pid === pid)
+        const index = products.findIndex(prod => prod.pid === pid)
 
-        if (indice != -1) {
-            //Mediante el indice modifico todos los atributos de mi objeto
-            products[indice].title = product.title
-            products[indice].description = product.description
-            products[indice].price = product.price
-            products[indice].thumbnail = product.thumbnail
-            products[indice].code = product.code
-            products[indice].stock = product.stock
-            products[indice].category = product.category
+        if (index != -1) {
+
+            products[index].title = product.title
+            products[index].description = product.description
+            products[index].price = product.price
+            products[index].thumbnail = product.thumbnail
+            products[index].code = product.code
+            products[index].stock = product.stock
+            products[index].category = product.category
 
             await fs.writeFile(this.path, JSON.stringify(products))
 
-            return true; // Retorna true para indicar éxito en la actualización
+            return true; 
         } else {
-            return false; // Retorna false si el producto no se encontró
+            return false; 
         }
     }
 
@@ -65,7 +65,7 @@ export default class ProductManager {
         const prods = products.filter(prod => prod.pid != pid)
         await fs.writeFile(this.path, JSON.stringify(prods))
 
-        return prods.length < products.length; // Devuelve true si se eliminó un producto, false si no se encontró          
+        return prods.length < products.length;          
     }
 
     generateId(products) {

@@ -6,30 +6,30 @@ const socket = io()
 const form = document.getElementById('formProduct')
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const datForm = new FormData(e.target) //El formulario que disparo el evento
-    const prod = Object.fromEntries(datForm) //Dado un objeto iterable, te devuelvo sus datos en un objeto simple
-    socket.emit('nuevoProducto', prod)
-    socket.on('mensajeProductoCreado', (mensaje) => {
-        Swal.fire(
-            mensaje
-        )
-    })
-    e.target.reset()
-})  
+  e.preventDefault()
+  const datForm = new FormData(e.target)
+  const prod = Object.fromEntries(datForm)
+  socket.emit('newProduct', prod)
+  socket.on('mensajeProductoCreado', (mensaje) => {
+    Swal.fire(
+      mensaje
+    )
+  })
+  e.target.reset()
+})
 
 const productsDiv = document.getElementById("productsDiv");
 
 
-socket.on("productosActualizados", (products) => {
+socket.on("updatedProducts", (products) => {
 
-    productsDiv.innerHTML = "";
+  productsDiv.innerHTML = "";
 
-    products.forEach((prod) => {
+  products.forEach((prod) => {
 
-      productsDiv.innerHTML += `
+    productsDiv.innerHTML += `
 
-          <div class="product-container shadow">
+          <div>
 
             <p>Title: ${prod.title}</p>
 
@@ -53,6 +53,6 @@ socket.on("productosActualizados", (products) => {
 
           `;
 
-    });
-
   });
+
+});

@@ -3,9 +3,8 @@
 
 import { Router } from 'express'
 import ProductManager from '../controllers/ProductManager.js';
-//import { ProductManager } from './ProductManager.js'
 
-const productManager = new ProductManager('src/models/productos.txt')
+const productManager = new ProductManager('src/models/products.txt')
 
 const routerProd = Router()
 
@@ -27,7 +26,7 @@ routerProd.get('/:pid', async (req, res) => {
     if (prod)
         res.status(200).send(prod)
     else
-        res.status(404).send("Producto no existente")
+        res.status(404).send("El Product no existe")
 })
 
 routerProd.post('/', async (req, res) => {
@@ -35,13 +34,13 @@ routerProd.post('/', async (req, res) => {
     const productData = req.body;
 
     if (!productData.title || !productData.description || !productData.code || !productData.price || !productData.stock || !productData.category) {
-        return res.status(400).send('Rellenar todos campos, son obligatorios');
+        return res.status(400).send('Todos los campos son obligatorios');
     }
 
-    const confirmacion = await productManager.addProduct(productData);
+    const confirm = await productManager.addProduct(productData);
 
-    if (confirmacion) {
-        res.status(201).send('Producto agregado correctamente');
+    if (confirm) {
+        res.status(201).send('El Product fue agregado correctamente');
     } else {
         res.status(401).send('Error al agregar el producto');
     }
@@ -52,12 +51,12 @@ routerProd.put('/:pid', async (req, res) => {
 
     const prodId = parseInt(req.params.pid);
 
-    const confirmacion = await productManager.updateProduct(prodId, req.body)
+    const confirm = await productManager.updateProduct(prodId, req.body)
 
-    if (confirmacion)
-        res.status(200).send("Producto actualizado correctamente")
+    if (confirm)
+        res.status(200).send("El Product fue actualizado correctamente")
     else
-        res.status(404).send("Producto no encontrado")
+        res.status(404).send("El Product no fue encontrado")
 
 })
 
@@ -65,12 +64,12 @@ routerProd.delete('/:pid', async (req, res) => {
 
     const prodId = parseInt(req.params.pid);
 
-    const confirmacion = await productManager.deleteProduct(prodId)
+    const confirm = await productManager.deleteProduct(prodId)
 
-    if (confirmacion)
-        res.status(200).send("Producto eliminado correctamente")
+    if (confirm)
+        res.status(200).send("El Product elimino correctamente")
     else
-        res.status(404).send("Producto no encontrado")
+        res.status(404).send("El Product no fue encontrado")
 })
 
 export default routerProd

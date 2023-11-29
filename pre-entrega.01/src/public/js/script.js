@@ -1,7 +1,6 @@
 
 
 
-const socket = io()//Llamado a la dependencia
+const socket = io()
 
-//Comunicarse con el servidor
 socket.emit('mensaje',"Hola Codersss")
