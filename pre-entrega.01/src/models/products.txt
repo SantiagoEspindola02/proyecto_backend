@@ -1,4 +1,1 @@
-
-
-
-[]
+[{"title":"zapatillas jordan","description":"zapatillas de vestir","code":"a100","price":250,"stock":10,"category":"sneakers","pid":2,"status":true},{"title":"zapatillas nike","description":"zapatillas de entrenamiento","code":"a101","price":200,"stock":10,"category":"sneakers","pid":3,"status":true}]

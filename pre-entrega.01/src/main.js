@@ -67,7 +67,6 @@ app.use('/api/carts', routerCart)
 app.get('/static/realTimeProducts', (req, res) => {
     res.render('realTimeProducts', {
         titulo: 'Crear nuevo Producto',
-        rutaCSS: 'realTimeProducts',
         rutaJS: 'realTimeProducts'
     });
 })
