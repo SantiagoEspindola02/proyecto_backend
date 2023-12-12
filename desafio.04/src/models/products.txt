@@ -1,1 +1,1 @@
-[]
+[{"title":"nike airforce 1","description":"zapatillas de salir","category":"zapatillas","price":"250","thumbnail":"https://sneakernews.com/wp-content/uploads/2018/05/nike-air-force-1-100-aq3621-111-2.jpg","stock":"10","code":"a100","pid":1,"status":true}]
